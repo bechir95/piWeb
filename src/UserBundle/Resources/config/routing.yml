@@ -1,0 +1,7 @@
+
+back:
+  path:     /admin
+  defaults: { _controller: UserBundle:Default:index }
+front:
+  path:     /front
+  defaults: { _controller: UserBundle:Default:login }

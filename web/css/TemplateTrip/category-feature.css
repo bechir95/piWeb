@@ -1,0 +1,181 @@
+.tt-category-featured {
+	background-attachment: scroll;
+    background-image: url("../../images/about-bg.jpg");
+    background-repeat: repeat;
+	background-size: cover;
+	background-color: #002600;
+	float: left;
+	position: relative;
+	width: 100%;
+}
+.tt-category-featured .box-heading {
+  display: none;
+}
+.tt-category-featured .ttfcat-items {
+  float: left;
+  margin-top: -170px;
+  width: 100%;
+}
+.tt-category-featured .category-feature.tt-carousel {
+  margin-bottom: 0;
+  width: auto;
+}
+.tt-category-featured .item {
+	float: left;
+	padding: 0 15px;
+	width: 100%;
+}
+.tt-category-featured .content {
+	background: #f5f5f5;
+	border: 8px solid #ffffff;
+	border-radius: 8px;
+	-moz-border-radius: 8px; 
+	-webkit-border-radius: 8px; 
+	-khtml-border-radius: 8px;
+	float: left;
+	padding: 15px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+}
+.tt-category-featured .content::after {
+	background: #cedcc5;
+	content: "";
+	height: 0;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: all 400ms ease-in-out 0s;
+	-webkit-transition: all 400ms ease-in-out 0s;
+	-moz-transition: all 400ms ease-in-out 0s;
+	-o-transition: all 400ms ease-in-out 0s;
+	-ms-transition: all 400ms ease-in-out 0s;
+	width: 100%;
+	z-index: -1;
+}
+.tt-category-featured .item:hover .content::after {
+	height: 50%;
+}
+.tt-category-featured .image {
+    float: left;
+	padding: 40px 0 55px;
+	width: 100%;
+}
+.tt-category-featured .image a img {
+	max-width: 100%;
+	margin: auto;
+	transition: all 400ms ease-in-out 0s;
+	-webkit-transition: all 400ms ease-in-out 0s;
+	-moz-transition: all 400ms ease-in-out 0s;
+	-o-transition: all 400ms ease-in-out 0s;
+	-ms-transition: all 400ms ease-in-out 0s;
+}
+.tt-category-featured .item:hover .image a img {
+	transform: scale(1.15) translateX(0px);
+	-webkit-transform: scale(1.15) translateX(0px);
+	-moz-transform: scale(1.15) translateX(0px);
+	-o-transform: scale(1.15) translateX(0px);
+	-ms-transform: scale(1.15) translateX(0px);
+}
+.tt-category-featured .caption {
+	float: left;
+	text-align: center;
+	width: 100%;
+}
+.tt-category-featured .cat-title > h4 {
+	margin: 0;
+	padding: 14px 0;
+	position: relative;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.tt-category-featured .cat-title a {
+	color: #777777;
+	font: 400 22px/24px "Philosopher",Helvetica,sans-serif;
+	margin: 0;
+	text-transform: capitalize;
+	white-space: nowrap;
+}
+.tt-category-featured .content:hover .cat-title a {
+	color: #000000;
+}
+.tt-category-featured .caption .cat-sub {
+  float: left;
+  padding: 10px 0 10px 20px;
+  width: 100%;
+  display: none;
+}
+.tt-category-featured .caption .cat-sub ul {
+	margin: 0;
+	padding: 0 10px;
+}
+.tt-category-featured .cat-sub li {
+  list-style: outside none none;
+  position: relative;
+  cursor: pointer;
+}
+.tt-category-featured .caption .cat-sub li a,
+.tt-category-featured .cat-sub li.more span {
+	background: none;
+	border: medium none;
+	border-radius: 0;
+	-moz-border-radius: 0; 
+	-webkit-border-radius: 0; 
+	-khtml-border-radius: 0;
+	color: #777777;
+	font: 300 14px/24px "Poppins",Helvetica,sans-serif;
+	padding: 0;
+	position: relative;
+	text-transform: capitalize;
+}
+.tt-category-featured .caption .cat-sub li a:hover,
+.tt-category-featured .cat-sub li.more span:hover,
+.tt-category-featured .caption .cat-sub li a:hover::before {
+	color: #000000;
+}
+.tt-category-featured .caption .cat-sub li a::before {
+  color: #777777;
+  content: "\f105";
+  font-size: 16px;
+  font-family: "FontAwesome";
+  left: -12px;
+  position: absolute;
+  top: 0;
+}
+.tt-category-featured .cat-sub li.more::before {
+  color: #777777;
+  content: "\f105";
+  font-size: 16px;
+  font-family: "FontAwesome";
+  left: -12px;
+  position: absolute;
+  top: 4px;
+}
+@media (max-width: 991px) {
+	.tt-category-featured .ttfcat-items {
+		margin-top: -100px;
+	}
+	.tt-category-featured .image {
+		padding: 20px 0 30px;
+	}
+}
+@media (max-width: 767px) {
+	.tt-category-featured .caption {
+		padding: 0;
+	}
+	.tt-category-featured .ttfcat-items {
+		margin-top: -70px;
+	}
+}
+@media (max-width: 480px) {
+.tt-category-featured .ttfcat-items {
+	margin-top: -30px;
+}
+.tt-category-featured .caption .cat-sub li a, 
+.tt-category-featured .cat-sub li.more span {
+	font-size: 12px;
+}
+}

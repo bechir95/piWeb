@@ -1,0 +1,176 @@
+{% extends 'forum/base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+
+                <!-- Forum -->
+                <div class="post beforepagination">
+                    <div class="topwrap">
+                        <div class="userinfo pull-left">
+                            <div class="avatar">
+                                <img src="images/avatar.jpg" alt="">
+                                <div class="status green">&nbsp;</div>
+                            </div>
+
+                            <div class="icons">
+                                <img src="images/icon1.jpg" alt=""><img src="images/icon4.jpg" alt=""><img src="images/icon5.jpg" alt=""><img src="images/icon6.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="posttext pull-left">
+                            <h2>{{ forum.title }}</h2>
+                            <p> {{ forum.content }} </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="postinfobot">
+
+                        <div class="likeblock pull-left">
+                            <a href="#" class="up"><i class="fa fa-thumbs-o-up"></i>25</a>
+                            <a href="#" class="down"><i class="fa fa-thumbs-o-down"></i>3</a>
+                        </div>
+
+                        <div class="prev pull-left">
+                            <a href="#"><i class="fa fa-reply"></i></a>
+                        </div>
+
+                        <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{ forum.createdAt|date('d M @ h:ma') }}</div>
+
+                        <div class="next pull-right">
+                            <a href="#"><i class="fa fa-share"></i></a>
+
+                            <a href="#"><i class="fa fa-flag"></i></a>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- Forum -->
+
+                <div class="paginationf">
+                    <div class="pull-left"><a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a></div>
+                    <div class="pull-left">
+                        <ul class="paginationforum">
+                            <li class="hidden-xs"><a href="#">1</a></li>
+                            <li class="hidden-xs"><a href="#">2</a></li>
+                            <li class="hidden-xs"><a href="#">3</a></li>
+                            <li class="hidden-xs"><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#" class="active">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li class="hidden-xs"><a href="#">9</a></li>
+                            <li class="hidden-xs"><a href="#">10</a></li>
+                            <li class="hidden-xs hidden-md"><a href="#">11</a></li>
+                            <li class="hidden-xs hidden-md"><a href="#">12</a></li>
+                            <li class="hidden-xs hidden-sm hidden-md"><a href="#">13</a></li>
+                            <li><a href="#">1586</a></li>
+                        </ul>
+                    </div>
+                    <div class="pull-left"><a href="#" class="prevnext last"><i class="fa fa-angle-right"></i></a></div>
+                    <div class="clearfix"></div>
+                </div>
+                {% for reply in replys %}
+                <!-- Replay -->
+                <div class="post">
+                    <div class="topwrap">
+                        <div class="userinfo pull-left">
+                            <div class="avatar">
+                                <img src="images/avatar2.jpg" alt="">
+                                <div class="status red">&nbsp;</div>
+                            </div>
+
+                            <div class="icons">
+                                <img src="images/icon3.jpg" alt=""><img src="images/icon4.jpg" alt=""><img src="images/icon5.jpg" alt=""><img src="images/icon6.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="posttext pull-left">
+                            <p>{{ reply.content }}</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="postinfobot">
+
+                        <div class="likeblock pull-left">
+                            <a href="#" class="up"><i class="fa fa-thumbs-o-up"></i>10</a>
+                            <a href="#" class="down"><i class="fa fa-thumbs-o-down"></i>1</a>
+                        </div>
+
+                        <div class="prev pull-left">
+                            <a href="#"><i class="fa fa-reply"></i></a>
+                        </div>
+
+                        <div class="posted pull-left">
+                            <i class="fa fa-clock-o"></i> Posted on : {{ reply.createdAt|date('d M @ h:ma') }}
+                        </div>
+
+                        <div class="next pull-right">
+                            <a href="#"><i class="fa fa-share"></i></a>
+
+                            <a href="#"><i class="fa fa-flag"></i></a>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- Reply -->
+                {% endfor %}
+
+
+
+                {{ form_start(formulaire) }}
+                <!-- Add Replay-->
+                <div class="post">
+
+                    <div class="topwrap">
+                        <div class="userinfo pull-left">
+                            <div class="avatar">
+                                <img src="images/avatar4.jpg" alt="">
+                                <div class="status red">&nbsp;</div>
+                            </div>
+
+                            <div class="icons">
+                                <img src="images/icon3.jpg" alt=""><img src="images/icon4.jpg" alt=""><img src="images/icon5.jpg" alt=""><img src="images/icon6.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="posttext pull-left">
+                            <div class="textwraper">
+                                <div class="postreply">Post a Reply</div>
+                                {{ form_widget(formulaire.content) }}
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="postinfobot">
+
+                        <div class="notechbox pull-left">
+                            <input type="checkbox" name="note" id="note" class="form-control">
+                        </div>
+
+                        <div class="pull-left">
+                            <label for="note"> Email me when some one post a reply</label>
+                        </div>
+
+                        <div class="pull-right postreply">
+                            <div class="pull-left smile"><a href="#"><i class="fa fa-smile-o"></i></a></div>
+                            {{ form_widget(formulaire.sub) }}
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+                    </div>
+
+
+                </div>
+                {{ form_end(formulaire) }}
+                <!-- Add Replay -->
+
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
