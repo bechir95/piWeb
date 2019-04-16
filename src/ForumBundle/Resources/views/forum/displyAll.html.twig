@@ -1,0 +1,62 @@
+{% extends 'forum/base.html.twig' %}
+
+{% block body %}
+
+    <div class="navigation text-center">
+        {{ knp_pagination_render(forums) }}
+    </div>
+
+    <!-- POST -->
+
+    {% for forum in forums %}
+        <div class="post" id="myDIV">
+            <div class="wrap-ut pull-left">
+                <div class="userinfo pull-left">
+                    <div class="avatar">
+                        <img src="{{ asset('forum/images/avatar.jpg')}}" alt="" />
+                        <div class="status green">&nbsp;</div>
+                    </div>
+
+                    <div class="icons">
+                        <img src="{{ asset('forum/images/icon1.jpg')}}" alt="" /><img src="{{ asset('forum/images/icon4.jpg')}}" alt="" />
+                    </div>
+                </div>
+                <div class="posttext pull-left">
+                    <h2><a href=" {{ path ('forum_show',{'id':forum.id})}}">{{ forum.title }}</a></h2>
+                    <p>{{ forum.content }}</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="postinfo pull-left">
+                <div class="comments">
+                    <div class="commentbg">
+                        {% set count = 0 %}
+                        {% for reply in replys %}
+                            {% if reply.forum == forum %}
+                                {% set count = count + 1 %}
+                            {% endif %}
+                        {% endfor %}
+                        {{ count }}
+                        <div class="mark"></div>
+                    </div>
+
+                </div>
+                <div class="views"><i class="fa fa-eye"></i> 1,568</div>
+                <div class="time"><i class="fa fa-clock-o"></i> {{ forum.createdAt|date(' H m ') }}min </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+    {% endfor %}
+
+    <div class="navigation text-center">
+        {{ knp_pagination_render(forums) }}
+    </div>
+    <!-- POST -->
+
+
+{% endblock %}
+
+
+
+

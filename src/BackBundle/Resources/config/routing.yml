@@ -1,0 +1,39 @@
+back_homepage:
+    path:     /
+    defaults: { _controller: BackBundle:Default:index }
+
+back_forum:
+    path:     /forum
+    defaults: { _controller: BackBundle:Default:allForum }
+
+back_forum_delete:
+    path:     /forum/{id}
+    defaults: { _controller: BackBundle:Default:deleteForum }
+
+back_reply:
+    path:     /reply
+    defaults: { _controller: BackBundle:Default:allReply }
+
+back_reply_delete:
+    path:     /reply/{id}
+    defaults: { _controller: BackBundle:Default:deleteReply }
+
+back_service:
+    path:     /service
+    defaults: { _controller: BackBundle:Default:allService }
+
+back_service_delete:
+    path:     /service/{id}
+    defaults: { _controller: BackBundle:Default:deleteService }
+
+back_gardener:
+    path:     /gardener
+    defaults: { _controller: BackBundle:Default:allGardener }
+
+back_gardener_delete:
+    path:     /gardener/{id}
+    defaults: { _controller: BackBundle:Default:deleteGardener }
+
+chart:
+    path:     /chart
+    defaults: { _controller: BackBundle:Default:chart    }

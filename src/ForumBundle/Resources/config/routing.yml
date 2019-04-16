@@ -1,0 +1,37 @@
+
+
+forum_disply:
+    path:     /disply
+    defaults: { _controller: ForumBundle:Forum:index    }
+
+forum_create:
+    path:     /create
+    defaults: { _controller: ForumBundle:Forum:create    }
+
+forum_show:
+    path:     /{id}
+    defaults: { _controller: ForumBundle:Forum:show    }
+
+forum_edit:
+    path:     /editF/{id}
+    defaults: { _controller: ForumBundle:Forum:edit    }
+
+forum_delete:
+    path:     /deleteF/{id}
+    defaults: { _controller: ForumBundle:Forum:delete    }
+
+reply_edit:
+    path:     /editR/{id}
+    defaults: { _controller: ForumBundle:Reply:edit    }
+
+reply_delete:
+    path:     /deleteR/{id}
+    defaults: { _controller: ForumBundle:Reply:delete    }
+
+reply_plus:
+    path:     /plusR/{id}
+    defaults: { _controller: ForumBundle:Reply:plus    }
+
+reply_moins:
+    path:     /moinsR/{id}
+    defaults: { _controller: ForumBundle:Reply:moins    }

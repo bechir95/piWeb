@@ -1,0 +1,536 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <body class="common-home">
+    <div id="page">
+
+        <div class="header-content-title">
+            <div style="background-image: url({{ asset('images/catalog/demo/banners/parallax.jpg')}}); background-position: 50% 78.1106%;" data-source-url="{{ asset('images/catalog/demo/banners/parallax.jpg')}}" class="parallex">
+            </div>
+        </div>
+        <div class="content-top">
+            <div class="slideshow-panel">
+                <div class="ttloading-bg ttloader"></div>
+                <div class="swiper-viewport">
+                    <div id="slideshow0" class="slideshow-main swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide text-center">
+                                <a href="#">
+                                    <img src="{{ asset('images/cache/catalog/demo/banners/slider-01-1903x855.jpg')}}" alt="slider-01" class="img-responsive" />
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="swiper-pagination slideshow0"></div>
+                        <div class="swiper-pager">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           {# <script type="text/javascript">
+                var swiper = new Swiper('#slideshow0', {
+                    mode: 'horizontal',
+                    slidesPerView: 1,
+                    pagination: '.slideshow0',
+                    paginationClickable: true,
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    spaceBetween: 0,
+                    effect: 'fade',
+                    autoplay: 2500,
+                    autoplayDisableOnInteraction: true,
+                    loop: true
+                });
+                </script>#}
+            <div class="newletter-popup">
+                <div id="boxes" class="newletter-container">
+                    <div style="" id="dialog" class="window">
+                        <div id="popup2">
+                            <span class="b-close"><span>X</span></span>
+                        </div>
+                        <div class="newslatter-img col-sm-6 col-xs-6">
+                        </div>
+                        <div class="box col-sm-6 col-xs-6">
+                            <div class="newletter-title"><h2>Newsletter</h2></div>
+                            <div class="box-content newleter-content">
+                                <label></label>
+                                <div id="frm_subscribe">
+                                    <form name="subscribe" id="subscribe_popup">
+                                        <div class="newslatterpopup-content">
+                                            <span class="required">*</span><span>Your email address</span>
+                                            <div id="notification"></div>
+                                            <input type="text" value="" name="subscribe_pemail" id="subscribe_pemail" placeholder="Your email address">
+                                            <input type="hidden" value="" name="subscribe_pname" id="subscribe_pname" />
+
+                                            <div class="popup-button">
+                                                <a class="button btn btn-primary" onclick="email_subscribepopup()"><span>Subscribe</span></a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="subscribe-bottom">
+                                        <input type="checkbox" id="newsletter_popup_dont_show_again">
+                                        <label for="newsletter_popup_dont_show_again">Don't show this popup again</label>
+                                    </div>
+                                </div><!-- /#frm_subscribe -->
+                            </div><!-- /.box-content -->
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        function email_subscribepopup(){
+                            $.ajax({
+                                type: 'post',
+                                url: 'index.php?route=extension/module/ttnewslettersubscribe/subscribepopup',
+                                dataType: 'html',
+                                data:$("#subscribe_popup").serialize(),
+                                success: function (html) {
+                                    //$.cookie('shownewsletter', '1');
+                                    try {
+
+                                        eval(html);
+
+                                    } catch (e) {
+                                    }
+                                }});
+
+
+                        }
+                        /*function email_unsubscribepopup(){
+                            $.ajax({
+                                type: 'post',
+                                url: 'index.php?route=extension/module/ttnewslettersubscribe/unsubscribe',
+                                dataType: 'html',
+                                data:$("#subscribe_popup").serialize(),
+                                success: function (html) {
+                                    try {
+
+                                        eval(html);
+
+                                    } catch (e) {
+                                    }
+                                }});
+                            $('html, body').delay( 1500 ).animate({ scrollTop: 0 }, 'slow');
+
+                        }*/
+                    </script>
+                   {# <script type="text/javascript">
+                        $(document).ready(function() {
+
+                            if($.cookie('shownewsletter')==1) $('.newletter-popup').hide();
+                            $('#subscribe_pemail').keypress(function(e) {
+                                if(e.which == 13) {
+                                    e.preventDefault();
+                                    email_subscribepopup();
+                                }
+                                var name= $(this).val();
+                                $('#subscribe_pname').val(name);
+                            });
+                            $('#subscribe_pemail').change(function() {
+                                var name= $(this).val();
+                                $('#subscribe_pname').val(name);
+                            });
+
+
+                            //transition effect
+                            if($.cookie("shownewsletter") != 1){
+                                $('.newletter-popup').bPopup();
+
+                            }
+
+
+                            $('#newsletter_popup_dont_show_again').on('change', function(){
+                                if($.cookie("shownewsletter") != 1){
+                                    $.cookie("shownewsletter",'1')
+                                }else{
+                                    $.cookie("shownewsletter",'0')
+                                }
+                            });
+
+
+                        });
+                    </script>#}
+
+                </div>
+            </div><!-- /.box -->
+
+
+        </div>
+        <div class="tthome">
+
+            <div id="content" class="col-sm-12 left-column">
+                <div class="tt-category-featured">
+                    <div class="container">
+
+                        <div class="box-heading"><h3>Category Feature</h3></div>
+                        <div class="ttfcat-items">
+                            <div class="row">
+                                <div class="category-feature tt-carousel">
+
+                                    {% for service in services %}
+                                    <div class="item">
+                                        <div class="content">
+                                            <div class="image">
+                                                <a href="{{ path ('service_show',{'id':service.serviceId})}}">
+                                                    <img src="{{ asset('images/cache/catalog/demo/banners/categorybanner-04-160x170.png') }}" alt="Mardi Gras" title="Mardi Gras" class="img-responsive" />
+                                                </a>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="cat-title">
+                                                    <h4><a href="{{ path('service_show',{'id':service.serviceId}) }}">{{ service.libelle }}</a></h4>
+                                                </div>
+                                                <div class="cat-sub">
+                                                    <ul>
+                                                        <li><a href="" class="list-group-item">7ot el path</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Caption END -->
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="html-content">
+                    <div class="box-content"><div id="ttcmsservices">
+                            <div class="services">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="tt-title">welcome to the nutrients plants</div>
+                                        <div class="service-subtitle">Quis turpis et volutpat convallis, Plants Product and All</div>
+                                        <div class="services-content">
+                                            <div class="col-sm-4 col-xs-6 left-service service left-to-right hb-animate-element">
+                                                <div class="inner_content">
+                                                    <div class="service-img col-sm-3">
+                                                        <img alt="Free Shipping" src="{{ asset('images/catalog/demo/banners/service-icon1.png') }}">
+                                                    </div>
+                                                    <div class="service-content col-sm-9">
+                                                        <div class="services-title">Free Shipping</div>
+                                                        <div class="service-desc">Lorem ipsum dolor sit amet, conc Lorem sit amet, concLorem ipsum dolor</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="inner_content">
+                                                    <div class="service-img col-sm-3">
+                                                        <img alt="big saving" src="{{ asset('images/catalog/demo/banners/service-icon2.png')}}">
+                                                    </div>
+                                                    <div class="service-content col-sm-9">
+                                                        <div class="services-title">big saving</div>
+                                                        <div class="service-desc">Lorem ipsum dolor sit amet, conc Lorem sit amet, concLorem ipsum dolor</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-xs-6 right-service service right-to-left hb-animate-element">
+                                                <div class="inner_content">
+                                                    <div class="service-img col-sm-3">
+                                                        <img alt="Easy Retrurns" src="{{ asset('images/catalog/demo/banners/service-icon3.png') }}">
+                                                    </div>
+                                                    <div class="service-content col-sm-9">
+                                                        <div class="services-title">Easy Retrurns</div>
+                                                        <div class="service-desc">Lorem ipsum dolor sit amet, conc Lorem sit amet, concLorem ipsum dolor</div>
+                                                    </div>
+                                                </div>
+                                                <div class="inner_content">
+                                                    <div class="service-img col-sm-3">
+                                                        <img alt="24x7 support" src="{{ asset('images/catalog/demo/banners/service-icon4.png')}}">
+                                                    </div>
+                                                    <div class="service-content col-sm-9">
+                                                        <div class="services-title">24x7 support</div>
+                                                        <div class="service-desc">Lorem ipsum dolor sit amet, conc Lorem sit amet, concLorem ipsum dolor</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-xs-4 middle-img bottom-to-top hb-animate-element">
+                                                <div class="service-inner-img">
+                                                    <a href="#">
+                                                        <img alt="about-img.png" src="{{ asset('images/catalog/demo/banners/about-img.png')}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div></div>
+                </div>
+
+
+                    <div class="box-content"><div id="ttcms-content">
+                            <div class="ttcmscontent container hover_effect">
+                                <div class="row">
+
+                                    <div class="col-sm-12 ttcontents ttcmsright right-to-left  hb-animate-element">
+                                        <div class="row">
+                                            <div class="ttcmscontent ttcontentbanner col-xs-7">
+                                                <div class="video ttimg">
+                                                    <div class="ttcontentbanner-img">
+                  <span id="popup__toggle">
+				  	<img id="" src="{{ asset('images/cache/catalog/demo/gardener/1.jpg') }}">
+				  <div class="image-hover"></div>
+				  <span class="play-icone"><i class="fa fa-play"></i></span>
+				</span>
+
+                                                        <div class="popup__overlay">
+                                                            <div class="popup" id="popupVid">
+                                                                <a class="popup__close">X</a>
+                                                                <iframe allowfullscreen="" src="https://www.youtube.com/embed/ARwB7xb--sQ?vq=720" frameborder="0" height="600" width="1060"></iframe>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ttcmscontent ttcontentdesc2 col-xs-5">
+                                                <div class="ttcmscontentblock">
+                                                    <div class="ttcmscontent-content">
+                                                        <div class="ttcmscontent-title">New In Trend</div>
+                                                        <div class="ttcmscontent-subtitle">nventore veritatis et quasi architecto beatae dicta sun explicabo. Nemo enim ipsam volup tatemarchitecto volup a sit aspernatur.explicabo.</div>
+                                                        <div class="ttcmscontent-btn">
+                                                            <a href="#">watch now</a>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="html-content">
+                    <div class="box-content"><div id="ttcmstestimonial" class=" bottom-to-top hb-animate-element">
+                            <div style="background-image: url({{ asset('images/catalog/demo/banners/testimonals-bg.jpg') }}); background-position: 50% 78.1106%;" data-source-url="{{ asset('images/catalog/demo/banners/testimonals-bg.jpg') }}" class="parallex">
+                                <div class="tttestimonial-content container">
+                                    <div class="tttestimonial-inner">
+                                        <div class="tt-title">client say</div>
+                                        <ul id="tttestimonial-carousel" class="tt-carousel">
+                                           {% for gardener in gardeners %}
+                                            <li>
+
+                                                <div class="testimonial-image"><img alt="" src="{{ asset('images/catalog/demo/banners/user1.jpg') }}"></div>
+                                                <div class="testimonial-content">
+                                                    <div class="testimonial-user-title">
+                                                        <h4>{{ gardener.name }}</h4>
+                                                        <div class="user-designation">{{ gardener.diplome }}</div>
+                                                    </div>
+                                                    <div class="testimonial-desc">
+                                                        <p>{{ gardener.description }}</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div></div>
+                </div>
+
+
+
+
+                <script type="text/javascript">
+                    $('#carousel0').swiper({
+                        mode: 'horizontal',
+                        autoplay: 3000,
+                        //pagination: '.carousel0',
+                        pagination: false,
+                        paginationClickable: false,
+                        prevButton: '.swiper-button-prev',
+                        nextButton: '.swiper-button-next',
+
+                        // Default parameters
+                        slidesPerView: 5,
+
+                        // Responsive breakpoints
+                        breakpoints: {
+                            // when window width is <= 1200px
+                            1199: {
+                                slidesPerView: 4
+                            },
+                            // when window width is <= 991px
+                            991: {
+                                slidesPerView: 4
+                            },
+                            // when window width is <= 767px
+                            767: {
+                                slidesPerView: 3
+                            },
+                            // when window width is <= 480px
+                            480: {
+                                slidesPerView: 2
+                            }
+                        }
+
+                    });
+
+                   </script>
+                    {# //////////////////////////////////////////////////////////// eni na7etou #}
+
+
+                <div id="TT-instagram-feed" class="hb-animate-element bottom-to-top">
+                    <div class="box-heading">
+                        <h3>Follow our instagram</h3>
+                    </div>
+
+                    <div class="insta-feed">
+
+
+
+                        <div id="ttinstafeed-carousel">
+                            <div class="item">
+                                <div class="image-wrapper">
+                                    <img src="{{ asset('images/cache/catalog/demo/gardener/1.jpg') }}" alt="image"/>
+                                    <a target="_blank" href="{{ asset('images/cache/catalog/demo/gardener/1.jpg') }}" class="tticon-zoom" data-lightbox="example-set-1" title="Click to view Full Image">
+
+                                        <span class="ttview"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <script	 type="text/javascript">
+                    var bannerproduct = $("#ttinstafeed-carousel");
+                    bannerproduct.owlCarousel({
+                        //autoPlay : true,
+                        items : 6, //10 items above 1000px browser width
+                        itemsDesktop : [1200,4],
+                        itemsDesktopSmall : [991,3],
+                        itemsTablet: [767,3],
+                        itemsMobile : [480,2],
+                        pagination:false,
+                        navigation: false
+                    });
+                </script>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript"><!--
+        var tt_live_search = {
+            selector: '#search input[name=\'search\']',
+            text_no_matches: '',
+            height: '50px'
+        }
+
+        $(document).ready(function() {
+            var html = '';
+            html += '<div class="live-search">';
+            html += '	<ul>';
+            html += '	</ul>';
+            html += '<div class="result-text"></div>';
+            html += '</div>';
+
+            //$(tt_live_search.selector).parent().closest('div').after(html);
+            $(tt_live_search.selector).after(html);
+
+            $(tt_live_search.selector).autocomplete({
+                'source': function(request, response) {
+                    var filter_name = $(tt_live_search.selector).val();
+                    var cat_id = 0;
+                    var module_tt_live_search_min_length = '1';
+                    if (filter_name.length < module_tt_live_search_min_length) {
+                        $('.live-search').css('display','none');
+                    }
+                    else{
+                        var html = '';
+                        html += '<li style="text-align: center;height:10px;">';
+                        html +=	'<img class="loading" src="image/catalog/demo/banners/loading.gif" />';
+                        html +=	'</li>';
+                        $('.live-search ul').html(html);
+                        $('.live-search').css('display','block');
+
+                        $.ajax({
+                            url: 'index.php?route=extension/module/tt_live_search&filter_name=' +  encodeURIComponent(filter_name),
+                            dataType: 'json',
+                            success: function(result) {
+                                var products = result.products;
+                                $('.live-search ul li').remove();
+                                $('.result-text').html('');
+                                if (!$.isEmptyObject(products)) {
+                                    var show_image = 1;
+                                    var show_price = 1;
+                                    var show_description = 0;
+                                    $('.result-text').html('<a href="https://demo.templatetrip.com/Opencart/OPC06/OPC190_nursery/OPC02/index.php?route=product/search&amp;search='+filter_name+'" class="view-all-results">   View all results    ('+result.total+')</a>');
+
+                                    $.each(products, function(index,product) {
+                                        var html = '';
+
+                                        html += '<li>';
+                                        html += '<a href="' + product.url + '" title="' + product.name + '">';
+                                        if(product.image && show_image){
+                                            html += '	<div class="product-image col-sm-4 col-xs-4"><img alt="' + product.name + '" src="' + product.image + '"></div>';
+                                        }
+                                        html += '<div class="search-description col-sm-8 col-xs-8">';
+                                        html += '	<div class="product-name">' + product.name ;
+                                        if(show_description){
+                                            html += '<p>' + product.extra_info + '</p>';
+                                        }
+                                        html += '</div>';
+                                        if(show_price){
+                                            if (product.special) {
+                                                html += '	<div class="product-price"><span class="special">' + product.price + '</span><span class="price">' + product.special + '</span></div>';
+                                            } else {
+                                                html += '	<div class="product-price"><span class="price">' + product.price + '</span></div>';
+                                            }
+                                        }
+                                        html += '</div>';
+                                        html += '<span style="clear:both"></span>';
+                                        html += '</a>';
+                                        html += '</li>';
+                                        $('.live-search ul').append(html);
+                                    });
+                                } else {
+                                    var html = '';
+                                    html += '<li style="text-align: center;height:10px;">';
+                                    html +=	tt_live_search.text_no_matches;
+                                    html +=	'</li>';
+
+                                    $('.live-search ul').html(html);
+                                }
+                                $('.live-search').css('display','block');
+                                return false;
+                            }
+                        });
+                    }
+                },
+                'select': function(product) {
+                    $(tt_live_search.selector).val(product.name);
+                }
+            });
+
+            $(document).bind( "mouseup touchend", function(e){
+                var container = $('.live-search');
+                if (!container.is(e.target) && container.has(e.target).length === 0)
+                {
+                    container.hide();
+                }
+            });
+        });
+        //--></script>
+
+
+    <!--
+    OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+    Please donate via PayPal to donate@opencart.com
+    //-->
+    </body>
+    <!-- Mirrored from demo.templatetrip.com/Opencart/OPC06/OPC190_nursery/OPC02/index.php?route=common/home by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Mar 2019 03:16:03 GMT -->
+    </html>
+
+{% endblock %}

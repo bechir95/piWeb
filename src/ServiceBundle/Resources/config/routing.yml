@@ -1,0 +1,13 @@
+service_homepage:
+    path:     /
+    defaults: { _controller: ServiceBundle:Service:index }
+
+service_create:
+    path:     /create
+    defaults: { _controller: ServiceBundle:Service:create }
+
+service_show:
+  path:     /show/{id}
+  defaults: { _controller: ServiceBundle:Service:show }
+
+
